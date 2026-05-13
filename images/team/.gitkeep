@@ -1,0 +1,6 @@
+# Drop team-member portraits here.
+# Suggested filenames:
+#   firstname-lastname.webp  (e.g. lerato-dlamini.webp)
+# Recommended aspect ratio: 4:5 portrait, 800x1000 or larger.
+# After dropping a file in, edit team.html to point the .team-card__photo
+# background-image at it and update the name/role/bio.

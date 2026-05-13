@@ -1,0 +1,10 @@
+# Drop full-screen hero images here, one per page.
+# Suggested filenames (SEO-friendly, hyphenated, lowercase):
+#   home-hero.webp
+#   about-hero.webp
+#   team-hero.webp
+#   services-hero.webp
+#   gallery-hero.webp
+#   contact-hero.webp
+# Use WebP for the primary source with a JPG fallback in <picture>.
+# Recommended size: 1920x1080 (or 2400x1350 for 2x displays).

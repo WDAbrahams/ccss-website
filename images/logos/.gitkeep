@@ -1,0 +1,6 @@
+# Drop membership / affiliation logos here.
+# Suggested filenames:
+#   logo-{partner-name}.svg   (SVG preferred — scales perfectly)
+#   logo-{partner-name}.png   (transparent background, ~480x160)
+# After dropping a file in, edit the .logos block in index.html and
+# point each <img src> at the new file. Update the alt text too.

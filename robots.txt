@@ -1,0 +1,7 @@
+# CCSS — robots.txt
+# Allow all crawlers full access. Reference the sitemap so bots can discover every page.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.ccss.example/sitemap.xml

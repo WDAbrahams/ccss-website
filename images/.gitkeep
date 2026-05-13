@@ -1,0 +1,11 @@
+# Top-level images folder.
+#
+# Drop og-image.jpg directly into this folder (1200x630 — the Open Graph
+# share image referenced by every page's <meta property="og:image">).
+#
+# Subfolders:
+#   hero/      — full-screen hero images (one per page)
+#   services/  — service-card backgrounds
+#   gallery/   — gallery photographs
+#   team/      — team-member portraits
+#   logos/     — membership / affiliation logos

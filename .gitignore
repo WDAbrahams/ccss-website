@@ -1,0 +1,31 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+*.swp
+*.swo
+
+# Editor / IDE folders
+.idea/
+.vscode/
+*.code-workspace
+
+# Node (in case anyone ever runs a tool here — we don't ship node_modules)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Local environment / secrets
+.env
+.env.*
+
+# Build / dist (this project has no build step, but ignore just in case)
+dist/
+build/
+.cache/
+
+# Logs
+*.log

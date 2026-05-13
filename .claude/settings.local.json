@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:clarissacarsten-ss.com)",
+      "PowerShell($files = @\\('404.html','about.html','contact.html','gallery.html','index.html','services.html','team.html'\\); foreach \\($f in $files\\) { $p = \"c:\\\\Users\\\\Wesley\\\\Desktop\\\\Web Dev\\\\VS Code Folders\\\\ccss-website\\\\Code\\\\$f\"; \\(Get-Content $p -Raw\\) -replace 'ccss\\\\.example','ccss.co.za' | Set-Content -Encoding utf8 $p }; \"done\")"
+    ]
+  }
+}

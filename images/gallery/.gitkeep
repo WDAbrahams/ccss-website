@@ -1,0 +1,8 @@
+# Drop gallery photographs here.
+# Use SEO-friendly filenames, e.g. cape-town-conference-2026.webp
+# After dropping a file in:
+#   1. Open gallery.html
+#   2. Copy a <button class="gallery__item"> block
+#   3. Update the <img src> and alt text to match
+#   4. (Optional) Add data-full="…" pointing to a higher-res version
+# Recommended widths: 800–1600px.

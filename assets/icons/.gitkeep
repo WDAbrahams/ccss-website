@@ -1,0 +1,9 @@
+# SVG icon files (if you ever extract the inline SVGs out of the HTML).
+#
+# By default the site uses inline SVGs for social and UI icons (Facebook,
+# Instagram, TikTok, LinkedIn, chevrons, close X, stars). They're inline
+# so they pick up `currentColor` for hover states and don't need an extra
+# HTTP request.
+#
+# This folder is reserved for any standalone SVG/icon assets you want to
+# add later — favicons, custom logo marks, etc.
