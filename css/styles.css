@@ -837,7 +837,15 @@ p {
   transition: transform var(--speed) var(--ease);
 }
 
-.logos img:hover {
+.logos a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.logos img:hover,
+.logos a:hover img {
   transform: scale(1.05);
 }
 
