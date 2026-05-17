@@ -834,15 +834,11 @@ p {
   width: 100%;
   max-width: 160px;
   height: auto;
-  filter: grayscale(100%) brightness(0.85);
-  opacity: 0.75;
-  transition: filter var(--speed) var(--ease),
-              opacity var(--speed) var(--ease);
+  transition: transform var(--speed) var(--ease);
 }
 
 .logos img:hover {
-  filter: grayscale(0%) brightness(1);
-  opacity: 1;
+  transform: scale(1.05);
 }
 
 /* --- Forms --- */
