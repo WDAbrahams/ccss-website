@@ -100,8 +100,8 @@ Then visit `http://localhost:8000`.
 | Footer text, social links                  | every HTML file (footer is duplicated — search & replace)   |
 | Brand colours                              | `css/styles.css` — `:root { … }` block at the top           |
 | Fonts                                      | `<link rel="stylesheet" …>` in each HTML `<head>`, plus `--font-serif` in `:root` |
-| Web3Forms access key                       | `contact.html` — `value="YOUR_WEB3FORMS_ACCESS_KEY"`        |
-| GA4 measurement ID                         | every HTML file — search for `G-XXXXXXXXXX`                 |
+| Web3Forms access key                       | `contact.html` — `value="…"` (already set; replace to use a different key) |
+| GA4 measurement ID                         | every HTML file — search for `G-TRFS920L8L` (already set)   |
 
 ### How to add a gallery image
 
@@ -133,26 +133,23 @@ The 6th service is a placeholder — search for the `SIXTH SERVICE` comment in `
 
 ### Web3Forms (contact form)
 
-1. Visit [web3forms.com](https://web3forms.com) and sign up (free).
-2. Create a form and copy your **access key**.
-3. Open `contact.html`, find the line:
+The contact form is **already wired up** with the live CCSS access key in `contact.html`:
 
-   ```html
-   <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-   ```
+```html
+<input type="hidden" name="access_key" value="86d6b3d9-64ba-4a7e-b190-ba9d71ddd481">
+```
 
-   and paste your access key in place of `YOUR_WEB3FORMS_ACCESS_KEY`.
+To use a different account: visit [web3forms.com](https://web3forms.com), sign up (free), copy your **access key**, and replace the value above.
 
 The access key is **public-safe** to commit to a repo — Web3Forms is designed for static sites.
 
 ### Google Analytics 4
 
-1. Visit [analytics.google.com](https://analytics.google.com), create a property, and copy your **measurement ID** (looks like `G-XXXXXXXXXX`).
-2. Open every HTML file (`index.html`, `about.html`, `team.html`, `services.html`, `gallery.html`, `contact.html`, `404.html`) and replace **both** instances of `G-XXXXXXXXXX` per file:
-   - Once in the `<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX">` line
-   - Once in the inline `gtag('config', 'G-XXXXXXXXXX')` call
+GA4 is **already configured** with the live CCSS measurement ID `G-TRFS920L8L`. The `gtag.js` snippet is present in the `<head>` of every HTML file (`index.html`, `about.html`, `team.html`, `services.html`, `gallery.html`, `contact.html`, `404.html`).
 
-A find-and-replace across the project is the fastest way.
+To use a different property: visit [analytics.google.com](https://analytics.google.com), create a property, copy your **measurement ID** (looks like `G-XXXXXXXXXX`), and find-and-replace `G-TRFS920L8L` across the project — there are **two** instances per file:
+   - Once in the `<script async src="https://www.googletagmanager.com/gtag/js?id=G-TRFS920L8L">` line
+   - Once in the inline `gtag('config', 'G-TRFS920L8L')` call
 
 ### Google Maps embed
 
