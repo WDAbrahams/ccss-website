@@ -25,13 +25,15 @@
   <meta name="twitter:description" content="World-class hospitality management, conferencing, events, catering and venue operations.">
   <meta name="twitter:image" content="https://www.ccss.co.za/images/og-image.jpg">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap">
+  <!-- Fonts (self-hosted — removes the render-blocking Google Fonts request) -->
+  <link rel="preload" href="fonts/pt-serif-regular.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Preload home hero image for faster LCP -->
-  <link rel="preload" as="image" href="images/hero/home-hero-wedding-bride-dress-outdoor.webp">
+  <!-- Preload home hero (LCP element) — responsive variants, high priority -->
+  <link rel="preload" as="image"
+        href="images/hero/home-hero-wedding-bride-dress-outdoor-1600w.webp"
+        imagesrcset="images/hero/home-hero-wedding-bride-dress-outdoor-800w.webp 800w,
+                     images/hero/home-hero-wedding-bride-dress-outdoor-1600w.webp 1600w"
+        imagesizes="100vw" fetchpriority="high">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
@@ -74,13 +76,21 @@
   }
   </script>
 
-  <!-- Google Analytics 4 - replace G-TRFS920L8L with your real measurement ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRFS920L8L"></script>
+  <!-- Google Analytics 4 — replace G-TRFS920L8L with your real measurement ID.
+       gtag.js is injected after window.load so its ~67ms of script work stays out
+       of the Total Blocking Time / LCP window. Every page load is still tracked:
+       config commands queue on dataLayer and run once the script arrives. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-TRFS920L8L');
+    window.addEventListener('load', function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TRFS920L8L';
+      document.head.appendChild(s);
+    });
   </script>
 
   <!-- Site scripts (deferred so DOM is ready when they run) -->
@@ -132,7 +142,14 @@
   <main id="main">
 
     <!-- ====================== HERO ====================== -->
-    <section class="hero" style="background-image: url('images/hero/home-hero-wedding-bride-dress-outdoor.webp');">
+    <section class="hero">
+      <img class="hero__img"
+           src="images/hero/home-hero-wedding-bride-dress-outdoor-1600w.webp"
+           srcset="images/hero/home-hero-wedding-bride-dress-outdoor-800w.webp 800w,
+                   images/hero/home-hero-wedding-bride-dress-outdoor-1600w.webp 1600w"
+           sizes="100vw"
+           alt="Outdoor wedding at Springbok Guest Farm with a bride in a white dress"
+           width="1600" height="900" fetchpriority="high" decoding="async">
       <div class="hero__content">
         <p class="eyebrow">Hospitality · Conferencing · Venue Management</p>
         <h1 class="hero__title">Crafting unforgettable hospitality experiences.</h1>
@@ -205,7 +222,6 @@
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 </div>
                 <div class="carousel__author">
-                  <img class="carousel__avatar" src="https://placehold.co/96x96/333533/F2ECDD?text=AM" alt="">
                   <div class="carousel__author-meta">
                     <strong>Ayesha Moodley</strong>
                     <span>Director of Events, Atlas Group</span>
@@ -224,7 +240,6 @@
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 </div>
                 <div class="carousel__author">
-                  <img class="carousel__avatar" src="https://placehold.co/96x96/333533/F2ECDD?text=DK" alt="">
                   <div class="carousel__author-meta">
                     <strong>David Khumalo</strong>
                     <span>Head of Hospitality, Vega Holdings</span>
@@ -243,7 +258,6 @@
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 </div>
                 <div class="carousel__author">
-                  <img class="carousel__avatar" src="https://placehold.co/96x96/333533/F2ECDD?text=NS" alt="">
                   <div class="carousel__author-meta">
                     <strong>Nadia Sithole</strong>
                     <span>CEO, Lumen Conferences</span>
@@ -277,16 +291,16 @@
 
         <div class="logos fade-in">
           <a href="https://www.southafrica.net/za/en/" target="_blank" rel="noopener noreferrer" aria-label="Visit South African Tourism website (opens in new tab)">
-            <img src="images/logos/south-african-tourism-logo.webp" alt="South African Tourism">
+            <img src="images/logos/south-african-tourism-logo-400w.webp" alt="South African Tourism">
           </a>
           <a href="https://www.saaci.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit SAACI website (opens in new tab)">
-            <img src="images/logos/southern-african-association-for-the-conference-industry-logo.webp" alt="Southern African Association for the Conference Industry (SAACI)">
+            <img src="images/logos/southern-african-association-for-the-conference-industry-logo-400w.webp" alt="Southern African Association for the Conference Industry (SAACI)">
           </a>
           <a href="https://www.tourismgrading.co.za/" target="_blank" rel="noopener noreferrer" aria-label="Visit Tourism Grading Council of South Africa website (opens in new tab)">
-            <img src="images/logos/tourism-grading-south-africa-logo.webp" alt="Tourism Grading Council of South Africa">
+            <img src="images/logos/tourism-grading-south-africa-logo-400w.webp" alt="Tourism Grading Council of South Africa">
           </a>
-          <img src="images/logos/springbok-guest-farm-logo.webp" alt="Springbok Guest Farm">
-          <img src="images/logos/platfontein-lodge-and-conference-centre-logo.webp" alt="Platfontein Lodge & Conference Centre">
+          <img src="images/logos/springbok-guest-farm-logo-400w.webp" alt="Springbok Guest Farm">
+          <img src="images/logos/platfontein-lodge-and-conference-centre-logo-400w.webp" alt="Platfontein Lodge & Conference Centre">
         </div>
       </div>
     </section>

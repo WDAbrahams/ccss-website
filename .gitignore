@@ -27,5 +27,8 @@ dist/
 build/
 .cache/
 
+# Squoosh staging output — review, then copy wanted files into images/
+images-optimized/
+
 # Logs
 *.log

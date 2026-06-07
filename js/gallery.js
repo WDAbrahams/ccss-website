@@ -25,11 +25,13 @@
     function showAt(index) {
       currentIndex = (index + items.length) % items.length;
       const item = items[currentIndex];
+      const img = item.querySelector("img");
       const fullSrc =
         item.getAttribute("data-full") ||
-        item.querySelector("img")?.getAttribute("src") ||
+        img?.getAttribute("data-full") ||
+        img?.getAttribute("src") ||
         "";
-      const alt = item.querySelector("img")?.getAttribute("alt") || "";
+      const alt = img?.getAttribute("alt") || "";
       lightboxImg.setAttribute("src", fullSrc);
       lightboxImg.setAttribute("alt", alt);
     }

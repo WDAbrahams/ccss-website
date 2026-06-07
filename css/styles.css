@@ -50,6 +50,24 @@
 }
 
 
+/* Self-hosted PT Serif (replaces the render-blocking Google Fonts request).
+   Download the two .woff2 files into /fonts — see instructions in chat/README. */
+@font-face {
+  font-family: "PT Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/pt-serif-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "PT Serif";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/pt-serif-700.woff2") format("woff2");
+}
+
+
 /* =========================================================================
    2. RESET / BASE
    ========================================================================= */
@@ -509,6 +527,18 @@ p {
   overflow: hidden;
 }
 
+/* Home hero image element (replaces the CSS background so it can be responsive,
+   preloaded and flagged fetchpriority="high" as the LCP element). */
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -522,10 +552,24 @@ p {
   z-index: 1;
 }
 
-/* Home hero — top-align the content so the title sits closer to the navbar */
+/* Home hero — top-align the content so the title sits closer to the navbar.
+   On mobile the content stretches the full height so the CTA can sit near the
+   bottom of the screen (see the .btn margin-top:auto below). */
 .hero:not(.hero--page) {
-  align-items: flex-start;
+  align-items: stretch;
   padding-top: calc(var(--navbar-height) + 3rem);
+}
+
+.hero:not(.hero--page) .hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Push the CTA to the bottom of the hero, leaving a small gap above the edge */
+.hero:not(.hero--page) .hero__content .btn {
+  margin-top: auto;
+  margin-bottom: 1.5rem;
 }
 
 .hero__content {
@@ -746,15 +790,6 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.85rem;
-}
-
-.carousel__avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: var(--color-bg-alt);
-  border: 2px solid var(--color-accent);
-  object-fit: cover;
 }
 
 .carousel__author-meta {
@@ -1275,6 +1310,10 @@ p {
   .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
 
   .contact-grid { grid-template-columns: 1.4fr 1fr; align-items: start; }
+
+  /* Home hero — revert to top-aligned content on larger screens */
+  .hero:not(.hero--page) { align-items: flex-start; }
+  .hero:not(.hero--page) .hero__content .btn { margin-top: 0; margin-bottom: 0; }
 }
 
 /* lg — 1024px */

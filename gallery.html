@@ -22,9 +22,7 @@
   <meta name="twitter:description" content="A visual gallery of CCSS work.">
   <meta name="twitter:image" content="https://www.ccss.co.za/images/og-image.jpg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap">
+  <link rel="preload" href="fonts/pt-serif-regular.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="css/styles.css">
 
@@ -84,7 +82,7 @@
   <main id="main">
 
     <!-- ====================== HERO ====================== -->
-    <section class="hero hero--page" style="background-image: url('images/hero/gallery-hero-wedding-ceremony-2026.webp');">
+    <section class="hero hero--page" style="background-image: url('images/hero/gallery-hero-wedding-ceremony-2026-1600w.webp');">
       <div class="hero__content">
         <p class="eyebrow">Our</p>
         <h1 class="hero__title">Gallery</h1>
@@ -105,97 +103,216 @@
                version that should appear in the lightbox. If omitted, the lightbox
                uses the same src as the thumbnail.
         -->
+        <!-- PERF NOTE: these <img> tags intentionally have no explicit width/height
+             attributes. Layout shift (CLS) is already prevented by the fixed
+             aspect-ratio on .gallery__item img in css/styles.css. If that
+             aspect-ratio rule is ever removed, add width/height here to keep CLS at 0. -->
         <div class="gallery fade-in">
           <button class="gallery__item" type="button" aria-label="View image: Wedding ceremony with gold Tiffany chairs">
-            <img loading="lazy" src="images/gallery/wedding-ceremony-gold-tiffany-chairs.webp" alt="Wedding ceremony setup with gold Tiffany chairs">
+            <img loading="lazy"
+            src="images/gallery/wedding-ceremony-gold-tiffany-chairs-600w.webp"
+            srcset="images/gallery/wedding-ceremony-gold-tiffany-chairs-600w.webp 600w, images/gallery/wedding-ceremony-gold-tiffany-chairs-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/wedding-ceremony-gold-tiffany-chairs-1200w.webp"
+            alt="Wedding ceremony setup with gold Tiffany chairs">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Wedding flowers and candles">
-            <img loading="lazy" src="images/gallery/ccss-wedding-flowers-candles.webp" alt="Wedding flower centrepieces with candles">
+            <img loading="lazy"
+            src="images/gallery/ccss-wedding-flowers-candles-600w.webp"
+            srcset="images/gallery/ccss-wedding-flowers-candles-600w.webp 600w, images/gallery/ccss-wedding-flowers-candles-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/ccss-wedding-flowers-candles-1200w.webp"
+            alt="Wedding flower centrepieces with candles">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Bride and groom table decor">
-            <img loading="lazy" src="images/gallery/wedding-bride-groom-table-decor.webp" alt="Bride and groom table decor at a wedding reception">
+            <img loading="lazy"
+            src="images/gallery/wedding-bride-groom-table-decor-600w.webp"
+            srcset="images/gallery/wedding-bride-groom-table-decor-600w.webp 600w, images/gallery/wedding-bride-groom-table-decor-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/wedding-bride-groom-table-decor-1200w.webp"
+            alt="Bride and groom table decor at a wedding reception">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Blue wedding table decor">
-            <img loading="lazy" src="images/gallery/blue-wedding-table-decor.webp" alt="Blue-themed wedding table decor">
+            <img loading="lazy"
+            src="images/gallery/blue-wedding-table-decor-600w.webp"
+            srcset="images/gallery/blue-wedding-table-decor-600w.webp 600w, images/gallery/blue-wedding-table-decor-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/blue-wedding-table-decor-1200w.webp"
+            alt="Blue-themed wedding table decor">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Wedding flower centrepiece">
-            <img loading="lazy" src="images/gallery/ccss-wedding-flowercenter-piece.webp" alt="Floral centrepiece on a wedding table">
+            <img loading="lazy"
+            src="images/gallery/ccss-wedding-flowercenter-piece-600w.webp"
+            srcset="images/gallery/ccss-wedding-flowercenter-piece-600w.webp 600w, images/gallery/ccss-wedding-flowercenter-piece-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/ccss-wedding-flowercenter-piece-1200w.webp"
+            alt="Floral centrepiece on a wedding table">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Gold and white wedding table setup">
-            <img loading="lazy" src="images/gallery/gold-white-wedding-table-setup-decor.webp" alt="Gold and white wedding table setup and decor">
+            <img loading="lazy"
+            src="images/gallery/gold-white-wedding-table-setup-decor-600w.webp"
+            srcset="images/gallery/gold-white-wedding-table-setup-decor-600w.webp 600w, images/gallery/gold-white-wedding-table-setup-decor-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/gold-white-wedding-table-setup-decor-1200w.webp"
+            alt="Gold and white wedding table setup and decor">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Outdoor marquee event">
-            <img loading="lazy" src="images/gallery/marquee-tent-rental-outdoor-event.webp" alt="Marquee tent rental at an outdoor event">
+            <img loading="lazy"
+            src="images/gallery/marquee-tent-rental-outdoor-event-600w.webp"
+            srcset="images/gallery/marquee-tent-rental-outdoor-event-600w.webp 600w, images/gallery/marquee-tent-rental-outdoor-event-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/marquee-tent-rental-outdoor-event-1200w.webp"
+            alt="Marquee tent rental at an outdoor event">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Luxury wedding decor">
-            <img loading="lazy" src="images/gallery/luxury-wedding-decor-clear-chairs.webp" alt="Luxury wedding decor with clear chairs">
+            <img loading="lazy"
+            src="images/gallery/luxury-wedding-decor-clear-chairs-600w.webp"
+            srcset="images/gallery/luxury-wedding-decor-clear-chairs-600w.webp 600w, images/gallery/luxury-wedding-decor-clear-chairs-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/luxury-wedding-decor-clear-chairs-1200w.webp"
+            alt="Luxury wedding decor with clear chairs">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Rustic wedding decor">
-            <img loading="lazy" src="images/gallery/rustic-wedding-decor-glass-underplate.webp" alt="Rustic wedding decor with glass underplate">
+            <img loading="lazy"
+            src="images/gallery/rustic-wedding-decor-glass-underplate-600w.webp"
+            srcset="images/gallery/rustic-wedding-decor-glass-underplate-600w.webp 600w, images/gallery/rustic-wedding-decor-glass-underplate-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/rustic-wedding-decor-glass-underplate-1200w.webp"
+            alt="Rustic wedding decor with glass underplate">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: White and gold wedding colour scheme">
-            <img loading="lazy" src="images/gallery/white-gold-wedding-colour-scheme.webp" alt="White and gold wedding colour scheme">
+            <img loading="lazy"
+            src="images/gallery/white-gold-wedding-colour-scheme-600w.webp"
+            srcset="images/gallery/white-gold-wedding-colour-scheme-600w.webp 600w, images/gallery/white-gold-wedding-colour-scheme-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/white-gold-wedding-colour-scheme-1200w.webp"
+            alt="White and gold wedding colour scheme">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Outdoor wedding reception decor">
-            <img loading="lazy" src="images/gallery/outdoor-wedding-decor-reception.webp" alt="Outdoor wedding reception decor">
+            <img loading="lazy"
+            src="images/gallery/outdoor-wedding-decor-reception-600w.webp"
+            srcset="images/gallery/outdoor-wedding-decor-reception-600w.webp 600w, images/gallery/outdoor-wedding-decor-reception-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/outdoor-wedding-decor-reception-1200w.webp"
+            alt="Outdoor wedding reception decor">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Wedding flower arrangement">
-            <img loading="lazy" src="images/gallery/wedding-flower-arrangement.webp" alt="Wedding floral arrangement">
+            <img loading="lazy"
+            src="images/gallery/wedding-flower-arrangement-600w.webp"
+            srcset="images/gallery/wedding-flower-arrangement-600w.webp 600w, images/gallery/wedding-flower-arrangement-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/wedding-flower-arrangement-1200w.webp"
+            alt="Wedding floral arrangement">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Wedding flower centrepiece in glass with gold accents">
-            <img loading="lazy" src="images/gallery/wedding-flower-centerpiece-glass-gold.webp" alt="Wedding flower centrepiece in glass with gold accents">
+            <img loading="lazy"
+            src="images/gallery/wedding-flower-centerpiece-glass-gold-600w.webp"
+            srcset="images/gallery/wedding-flower-centerpiece-glass-gold-600w.webp 600w, images/gallery/wedding-flower-centerpiece-glass-gold-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/wedding-flower-centerpiece-glass-gold-1200w.webp"
+            alt="Wedding flower centrepiece in glass with gold accents">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Champagne glasses toast on table">
-            <img loading="lazy" src="images/gallery/champange-glasses-toast-table.webp" alt="Champagne glasses ready for a toast on the table">
+            <img loading="lazy"
+            src="images/gallery/champange-glasses-toast-table-600w.webp"
+            srcset="images/gallery/champange-glasses-toast-table-600w.webp 600w, images/gallery/champange-glasses-toast-table-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/champange-glasses-toast-table-1200w.webp"
+            alt="Champagne glasses ready for a toast on the table">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Stadium event celebration">
-            <img loading="lazy" src="images/gallery/stadium-event-celebration-audience.webp" alt="Stadium event celebration with audience">
+            <img loading="lazy"
+            src="images/gallery/stadium-event-celebration-audience-600w.webp"
+            srcset="images/gallery/stadium-event-celebration-audience-600w.webp 600w, images/gallery/stadium-event-celebration-audience-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/stadium-event-celebration-audience-1200w.webp"
+            alt="Stadium event celebration with audience">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Stadium sportsfield track event">
-            <img loading="lazy" src="images/gallery/stadium-sportsfield-track-event.webp" alt="Stadium sportsfield and track event">
+            <img loading="lazy"
+            src="images/gallery/stadium-sportsfield-track-event-600w.webp"
+            srcset="images/gallery/stadium-sportsfield-track-event-600w.webp 600w, images/gallery/stadium-sportsfield-track-event-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/stadium-sportsfield-track-event-1200w.webp"
+            alt="Stadium sportsfield and track event">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Rose gold cutlery setting">
-            <img loading="lazy" src="images/gallery/rose-gold-cuttlery-underplate.webp" alt="Rose gold cutlery and underplate place setting">
+            <img loading="lazy"
+            src="images/gallery/rose-gold-cuttlery-underplate-600w.webp"
+            srcset="images/gallery/rose-gold-cuttlery-underplate-600w.webp 600w, images/gallery/rose-gold-cuttlery-underplate-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/rose-gold-cuttlery-underplate-1200w.webp"
+            alt="Rose gold cutlery and underplate place setting">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Party event glassware">
-            <img loading="lazy" src="images/gallery/party-event-glasses-decor-2026.webp" alt="Party event glassware and decor">
+            <img loading="lazy"
+            src="images/gallery/party-event-glasses-decor-2026-600w.webp"
+            srcset="images/gallery/party-event-glasses-decor-2026-600w.webp 600w, images/gallery/party-event-glasses-decor-2026-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/party-event-glasses-decor-2026-1200w.webp"
+            alt="Party event glassware and decor">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Wedding cake and cupcakes table">
-            <img loading="lazy" src="images/gallery/wedding-cake-table-cupcakes.webp" alt="Wedding cake table with cupcakes">
+            <img loading="lazy"
+            src="images/gallery/wedding-cake-table-cupcakes-600w.webp"
+            srcset="images/gallery/wedding-cake-table-cupcakes-600w.webp 600w, images/gallery/wedding-cake-table-cupcakes-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/wedding-cake-table-cupcakes-1200w.webp"
+            alt="Wedding cake table with cupcakes">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Wedding catering cupcakes">
-            <img loading="lazy" src="images/gallery/wedding-catering-cupcakes-2025.webp" alt="Wedding catering display of cupcakes">
+            <img loading="lazy"
+            src="images/gallery/wedding-catering-cupcakes-2025-600w.webp"
+            srcset="images/gallery/wedding-catering-cupcakes-2025-600w.webp 600w, images/gallery/wedding-catering-cupcakes-2025-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/wedding-catering-cupcakes-2025-1200w.webp"
+            alt="Wedding catering display of cupcakes">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Custom colour desserts and tarts">
-            <img loading="lazy" src="images/gallery/custom-colour-deserts-tarts.webp" alt="Custom coloured desserts and tarts">
+            <img loading="lazy"
+            src="images/gallery/custom-colour-deserts-tarts-600w.webp"
+            srcset="images/gallery/custom-colour-deserts-tarts-600w.webp 600w, images/gallery/custom-colour-deserts-tarts-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/custom-colour-deserts-tarts-1200w.webp"
+            alt="Custom coloured desserts and tarts">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Wedding catering platters and canapes">
-            <img loading="lazy" src="images/gallery/catering-platters-canepes-wedding.webp" alt="Wedding catering platters and canapes">
+            <img loading="lazy"
+            src="images/gallery/catering-platters-canepes-wedding-600w.webp"
+            srcset="images/gallery/catering-platters-canepes-wedding-600w.webp 600w, images/gallery/catering-platters-canepes-wedding-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/catering-platters-canepes-wedding-1200w.webp"
+            alt="Wedding catering platters and canapes">
           </button>
 
           <button class="gallery__item" type="button" aria-label="View image: Catering canapes and finger foods">
-            <img loading="lazy" src="images/gallery/catering-canepes-finger-foods.webp" alt="Catering canapes and finger foods">
+            <img loading="lazy"
+            src="images/gallery/catering-canepes-finger-foods-600w.webp"
+            srcset="images/gallery/catering-canepes-finger-foods-600w.webp 600w, images/gallery/catering-canepes-finger-foods-1200w.webp 1200w"
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            data-full="images/gallery/catering-canepes-finger-foods-1200w.webp"
+            alt="Catering canapes and finger foods">
           </button>
         </div>
       </div>
